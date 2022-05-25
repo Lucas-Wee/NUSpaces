@@ -2,6 +2,9 @@ export interface Post {
     // declared by user
     image: string;
     comment: string;
+    category: number;
+    // tags: string;
+    // location: ??
 
     // instantiated by backend
     ID: string;

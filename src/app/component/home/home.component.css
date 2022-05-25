@@ -23,8 +23,8 @@ mat-sidenav-content {
 }
 
 .content {
-    height: calc(100vh - 98px);
-    margin: 20px;
+    /*height: calc(100vh - 98px); */
+    margin: 16px;
     margin-left:32px;
 
     justify-content: center;
@@ -68,3 +68,4 @@ mat-divider {
     margin-top: 16px;
     margin-bottom: 16px;
 }
+

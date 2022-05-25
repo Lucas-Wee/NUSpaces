@@ -9,5 +9,6 @@ export interface User {
     // instantiated by backend
     ID: string;
     joinDate: string;
+    //some other info
 
 }
