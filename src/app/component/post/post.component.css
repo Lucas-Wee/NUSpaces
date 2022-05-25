@@ -1,0 +1,14 @@
+.post {
+    height: 500px;
+    width: 500px;
+}
+
+.post_image {
+    height: 300px;
+    width: 500px;
+}
+
+.post_text {
+    flex: auto;
+    text-align: justify;
+}
