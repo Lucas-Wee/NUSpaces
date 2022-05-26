@@ -19,6 +19,7 @@ import { HomeComponent } from './component/home/home.component';
 import { PostComponent } from './component/post/post.component';
 import { FeedComponent } from './component/feed/feed.component';
 import { LoginComponent } from './component/login/login.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -41,7 +42,17 @@ import { LoginComponent } from './component/login/login.component';
     MatDividerModule,
     MatCardModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot([
+      {
+        path: '',
+        component: LoginComponent 
+      },
+      {
+        path: 'home',
+        component: HomeComponent
+      }
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent]

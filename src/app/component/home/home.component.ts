@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Post } from '../../data/Post';
 
@@ -10,9 +11,12 @@ import { Post } from '../../data/Post';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  logout() {
+    this.router.navigate(['']);
+  }
 }

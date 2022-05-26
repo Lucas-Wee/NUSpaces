@@ -22,8 +22,13 @@ mat-sidenav-content {
     width: 1300px;
 }
 
+mat-divider {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
 .content {
-    /*height: calc(100vh - 98px); */
+    /*width: calc(vw100); */
     margin: 16px;
     margin-left:32px;
 
@@ -35,6 +40,13 @@ mat-sidenav-content {
     background-color: white;
 
     border-radius: 10px;
+}
+
+.home-button {
+    font-size: large;
+
+    position: absolute;
+    left: 3%
 }
 
 .menu-button {
@@ -64,8 +76,8 @@ mat-sidenav-content {
     background-color: rgba(255 , 255, 255, 0.1);
 }
 
-mat-divider {
-    margin-top: 16px;
-    margin-bottom: 16px;
+.logout-button {
+    position: absolute;
+    right: 3%;
 }
 
