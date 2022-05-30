@@ -38,7 +38,8 @@ The app is a social media platform. Usage of this platform will be similar to ot
 - Navigate to their own profile to view/edit their details and make posts;
 
 The app will be developed primarily for the web. We have no immediate plans for the app to be available on mobile devices.
-** This section is heavily reliant on mockup and prototype images, please refer to the [Google Docs Version](https://docs.google.com/document/d/1S2zsQyFxJmrxjLL55tYTYT_QVheyUSoPsE25tSZuO9Y/edit).
+
+**This section is heavily reliant on mockup and prototype images, please refer to the [Google Docs Version](https://docs.google.com/document/d/1S2zsQyFxJmrxjLL55tYTYT_QVheyUSoPsE25tSZuO9Y/edit).**
 
 ### User Authentication & Details:
 To use the app, users will initially need to register an account. Users will need to supply the following information to make an account:
