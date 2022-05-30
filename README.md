@@ -1,7 +1,7 @@
 # NuspacesApp
 
 ## Links:
-A preview of the app is available [here](https://nuspaces.netlify.app). For the moment there is no authentication so any random username or password will suffice.
+A preview of the app is available [here](https://nuspaces.netlify.app). For the moment there is no authentication so any random email address or password will suffice.
 
 - [Google Docs README](https://docs.google.com/document/d/1S2zsQyFxJmrxjLL55tYTYT_QVheyUSoPsE25tSZuO9Y/edit?usp=sharing)
 - [Time Logs](https://docs.google.com/spreadsheets/d/1ncyh0pu4ngOQzW2tn02UA8mojlnJcOvFKRYmpfL0X9k/edit?usp=sharing)
