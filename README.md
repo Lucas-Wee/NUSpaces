@@ -1,27 +1,17 @@
 # NuspacesApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.6.
+##Proposed Level of Achievement:
+Gemini 
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+##Motivation 
 
-## Code scaffolding
+In University, it is easy for students to get too caught up in academics and spend time on-campus only studying in their respective faculty buildings, eating at the same nearby eateries, and seeing the same views of campus.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+This shouldn’t be the case! There are many excellent places around campus to visit, whether to engage in quiet contemplation, grab a bite, or just take in the vistas. Some of these spaces are known only to a precious few individuals, but deserve to be shared with others to make their time at NUS invigorating and memorable.
 
-## Build
+##Aim:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+To encourage students to explore the NUS campus, through a social media app purposefully designed to share pictures of locations and categorize them by activities.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
