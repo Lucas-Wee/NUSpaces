@@ -1,22 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-
-import { Post } from '../../data/Post';
-
+import { AuthenticationService } from 'app/services/authentication.service';
+//import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
+
 export class HomeComponent implements OnInit {
+  
+  user$ = this.authService.currentUser$;
 
-  constructor(private router: Router) { }
+  constructor(private authService: AuthenticationService) {}
 
-  ngOnInit(): void {
-  }
-
-  logout() {
-    this.router.navigate(['']);
-  }
+  ngOnInit(): void {}
 }

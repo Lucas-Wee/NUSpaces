@@ -43,3 +43,7 @@ Thumbs.db
 
 # Project Files
 src/app/data/posts_test.ts
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json

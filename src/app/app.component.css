@@ -1,0 +1,14 @@
+mat-toolbar {
+    justify-content: space-between;
+    background: 	#90EE90;
+    color: black;
+  }
+  
+  .content {
+    padding: 32px;
+  }
+  
+  .profile-image-toolbar {
+    border-radius: 100%;
+    margin-right: 8px;
+  }

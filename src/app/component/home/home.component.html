@@ -1,14 +1,4 @@
-<mat-toolbar>
-  <button mat-button class="home-button"> 
-    NUSpaces 
-  </button>
-  <button mat-button class="logout-button" (click)="logout()">
-    <mat-icon> exit_to_app </mat-icon>
-    <span> Logout </span>
-  </button>
-</mat-toolbar>
-  
-  <mat-sidenav-container>
+<mat-sidenav-container>
     <mat-sidenav mode = "side" opened>
 
       <img 
@@ -16,7 +6,7 @@
         src = "https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg"
       />
 
-      <h4 class="name"> John Doe </h4>
+      <h4 *ngIf="user$ | async as User"> {{User.email}} </h4>
       <p class= "designation"> Joined 1<sup>st</sup> Jan 2000 </p>
 
       <button mat-button class="menu-button">

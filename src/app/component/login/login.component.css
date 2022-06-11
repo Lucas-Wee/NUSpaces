@@ -38,3 +38,7 @@ mat-card{
     text-decoration: none;
 }
 
+.sign-up-link {
+    font-size: 1.2rem;
+    margin-left: 8px;
+}

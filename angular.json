@@ -104,5 +104,8 @@
       }
     }
   },
-  "defaultProject": "nuspaces-app"
+  "defaultProject": "nuspaces-app",
+  "cli": {
+    "analytics": "f01385bb-a6a5-48c8-94eb-12fdf9acd9f6"
+  }
 }
