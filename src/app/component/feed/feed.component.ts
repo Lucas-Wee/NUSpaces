@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Post } from '../../data/Post';
-import { POSTS } from '../../data/posts_test'
+import { PostsService } from 'app/services/posts.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-feed',
@@ -9,9 +10,9 @@ import { POSTS } from '../../data/posts_test'
   styleUrls: ['./feed.component.css']
 })
 export class FeedComponent implements OnInit {
-  posts: Post[] = POSTS;
+  allPosts: Observable<Post[]> = this.postsService.allPosts$;
 
-  constructor() { }
+  constructor(private postsService: PostsService) { }
 
   ngOnInit(): void {
   }

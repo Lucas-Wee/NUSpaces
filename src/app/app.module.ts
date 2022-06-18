@@ -24,6 +24,8 @@ import { FeedComponent } from './component/feed/feed.component';
 import { LoginComponent } from './component/login/login.component';
 import { RouterModule } from '@angular/router';
 import { SignUpComponent } from './component/sign-up/sign-up.component';
+import { ProfileDynamicComponent } from './component/profile-dynamic/profile-dynamic.component';
+import { ProfileComponent } from './component/profile/profile.component';
 
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
@@ -31,6 +33,8 @@ import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { getStorage, provideStorage } from '@angular/fire/storage';
 import { HotToastModule } from '@ngneat/hot-toast';
+import { MakePostComponent } from './component/make-post/make-post.component';
+
 
 
 
@@ -42,7 +46,10 @@ import { HotToastModule } from '@ngneat/hot-toast';
     PostComponent,
     FeedComponent,
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    ProfileDynamicComponent,
+    ProfileComponent,
+    MakePostComponent
   ],
   imports: [
     BrowserModule,
