@@ -1,0 +1,41 @@
+<div
+  class="form-container mat-elevation-z5 text-center"
+>
+  <h1>Make Post</h1>
+  <div class="profile-image">
+    <img
+      width="120"
+      height="120"
+      class="margin-top mat-elevation-z1"
+    />
+    <button mat-mini-fab (click)="inputField.click()">
+      <mat-icon>edit</mat-icon>
+    </button>
+  </div>
+  <input #inputField hidden type="file"/>
+
+  <form class="margin-top" [formGroup]="postForm" (ngSubmit)="savePost()">
+    <div class="row">
+      <mat-form-field>
+        <input
+          type="text"
+          matInput
+          formControlName="category"
+          placeholder="Category"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          type="text"
+          matInput
+          formControlName="comment"
+          placeholder="Comment"
+        />
+      </mat-form-field>
+    </div>
+    
+    <button type="submit" class="margin-top" mat-raised-button color="primary">
+      Post
+    </button>
+  </form>
+</div>

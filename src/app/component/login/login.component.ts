@@ -1,36 +1,53 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthenticationService } from 'app/services/authentication.service';
+import { HotToastService } from '@ngneat/hot-toast';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
 
-  // attribute which decides initial state of hiding password
-  hide: boolean = true;
+  loginForm = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required])
+  });
 
-  // attribute defining contents of a loginForm: email and password
-  loginForm: FormGroup = this.fb.group({  
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(6)]]
-  })
-
-  constructor(private fb: FormBuilder, private router: Router) { }
+  constructor(
+    private authService: AuthenticationService,
+    private router: Router,
+    private toast: HotToastService) { }
 
   ngOnInit(): void {
   }
 
-  onLogin() {
+  get email() {
+    return this.loginForm.get('email');
+  }
+
+  get password() {
+    return this.loginForm.get('password');
+  }
+
+  submit() {
     if (!this.loginForm.valid) {
       return;
     }
-    console.log(this.loginForm.value);
+
+  const { email, password } = this.loginForm.value;
+  this.authService.login(email, password).pipe(
+    this.toast.observe({
+      success: 'Logged in successfully',
+      loading: 'Logging in...',
+      error: ({ message }) => `There was an error: ${message} `
+    })
+  ).subscribe(() => {
     this.router.navigate(['/home']);
-  }
-
-
+  });
+}
 
 }
