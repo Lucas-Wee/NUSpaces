@@ -1,22 +1,22 @@
 <mat-card class= "post">
     <mat-card-header>
         <img
-            src = {{post?.userAvatar}}
+            [src] = "post?.userAvatar ?? '/assets/images/profile-placeholder.png'"
             mat-card-avatar
         />
         <mat-card-title> {{post?.userName}} </mat-card-title>
-        <mat-card-subtitle> {{post?.date}} {{post?.time}}  </mat-card-subtitle>
+        <mat-card-subtitle> {{post?.time}} </mat-card-subtitle> <!-- for some ungodly reason it's refusing to print fml -->
     </mat-card-header>
 
     <mat-card-content>
         <img
-            src = {{post?.image}}
+            [src] = "post?.photoID ?? '/assets/images/image-placeholder.png'"
             width = 500px;
             height = 300px;
         />
         <div class="post_text">
+            <h6> {{post?.category}} </h6>
             <p> {{post?.comment}} </p>
-            
         </div>
     </mat-card-content>
 

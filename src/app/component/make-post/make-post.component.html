@@ -2,27 +2,36 @@
   class="form-container mat-elevation-z5 text-center"
 >
   <h1>Make Post</h1>
-  <div class="profile-image">
+  <div class="post-image">
     <img
-      width="120"
-      height="120"
       class="margin-top mat-elevation-z1"
+      [src] = "url =='' ? 'assets/images/camera.png' : url "
     />
     <button mat-mini-fab (click)="inputField.click()">
       <mat-icon>edit</mat-icon>
     </button>
   </div>
-  <input #inputField hidden type="file"/>
+  <input #inputField type="file" hidden (change)="onFileChange($event)"/>
 
   <form class="margin-top" [formGroup]="postForm" (ngSubmit)="savePost()">
     <div class="row">
-      <mat-form-field>
+      <!-- <mat-form-field>
         <input
           type="text"
           matInput
           formControlName="category"
           placeholder="Category"
         />
+      </mat-form-field> -->
+      
+     
+      <mat-form-field>
+        <mat-label>Category</mat-label>
+        <mat-select formControlName="category">
+          <mat-option *ngFor="let category of categories" [value]="category.value">
+            {{category.viewValue}}
+          </mat-option>
+        </mat-select>
       </mat-form-field>
       <mat-form-field>
         <input

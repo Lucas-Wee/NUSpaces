@@ -1,16 +1,16 @@
+import { Timestamp } from "@angular/fire/firestore";
+
 export interface Post {
     // declared by user
-    image: string;
     comment: string;
     category: number;
-    // tags: string;
-    // location: ??
+    photoID: string;
+
 
     // instantiated by backend
     ID: string;
-    date: string;
-    time: string;
+    time: Timestamp;
 
     userName: string;
-    userAvatar: string; //naive solution: in future supply the User interface to access both attributes
+    userAvatar: string; 
 }

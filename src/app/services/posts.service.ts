@@ -1,10 +1,21 @@
 import { Injectable } from '@angular/core';
-import { collection, collectionData, Firestore, query } from '@angular/fire/firestore';
+import { 
+  collection, 
+  collectionData, 
+  doc, 
+  Firestore, 
+  orderBy, 
+  query, 
+  Timestamp, 
+  updateDoc,
+  where,
+} from '@angular/fire/firestore';
 import { UsersService } from './users.service';
 import { Post } from 'app/data/Post';
-import { Observable, take, map } from 'rxjs';
-import { User } from '@angular/fire/auth';
+import { Observable, take, map, switchMap} from 'rxjs';
 import { addDoc } from '@firebase/firestore';
+import { UploadService } from './upload.service';
+import { User } from 'app/data/User';
 
 @Injectable({
   providedIn: 'root'
@@ -14,25 +25,57 @@ export class PostsService {
 
   get allPosts$(): Observable<Post[]> {
     const ref = collection(this.firestore, 'posts');
-    const queryAll = query(ref);
+    const queryAll = query(ref, orderBy('time', 'desc'));
     return collectionData(queryAll) as Observable<Post[]>;
   }
 
-  constructor(private firestore: Firestore, private usersService: UsersService) { }
-
-  addPost(post: Post): Observable<any> {
+  postsByUser(uid: string | undefined): Observable<Post[]> {
     const ref = collection(this.firestore, 'posts');
+    const queryPosts = query(ref, where('userID', '==', uid), orderBy('time', 'desc'));
+    //console.log(queryPosts);
+    return collectionData(queryPosts) as Observable<Post[]>;
+  }
+
+  postsByCategory(category: string): Observable<Post[]> {
+    const ref = collection(this.firestore, 'posts');
+    const queryPosts = query(ref, where('category', '==', category), orderBy('time', 'desc'));
+    return collectionData(queryPosts) as Observable<Post[]>;
+  }
+
+  constructor(
+    private firestore: Firestore, 
+    private usersService: UsersService,
+    private uploadService: UploadService) { }
+
+  addPost(post: Post, image: File): Observable<any> {
+    const ref = collection(this.firestore, 'posts');
+    const currTime = new Date();
+    console.log(currTime.toDateString());
+    
     return this.user$.pipe(
       take(1),
-      map(user => addDoc(ref,
-        {
-          category: post.category,
-          comment: post.comment,
-          date: '01/01/2000',
-          time: '00:00',
-          userID: user?.uid,
-          userName: user?.displayName,
-        }))
+        map(user => 
+          addDoc(ref,
+            {
+              category: post.category,
+              comment: post.comment,
+              time: currTime,
+              userID: user?.uid,
+              userName: user?.displayName,
+              userAvatar: user?.photoURL
+            }).then(docRef => 
+              this.uploadService.uploadImage(image, `images/posts/${docRef.id}`)
+              .pipe(
+                switchMap((photoURL) => 
+                  updateDoc(docRef, {
+                    id: docRef.id, 
+                    photoID: photoURL
+                  })
+                )
+              )  
+              .subscribe()
+            ) 
+        )
     )
   }
 }
