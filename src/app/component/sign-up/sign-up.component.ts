@@ -81,7 +81,7 @@ export class SignUpComponent implements OnInit {
          switchMap(({ user: { uid } }) =>
            this.usersService.addUser({
              uid, email, displayName: name,
-             description: ''
+             description: '', photoURL:  ''
            })
          ),
         this.toast.observe({

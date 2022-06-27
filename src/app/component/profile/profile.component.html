@@ -1,13 +1,14 @@
-<mat-sidenav-container>
+<ng-container *ngIf="user$ | async as User">
+  <mat-sidenav-container>
     <mat-sidenav mode = "side" opened>
 
       <img 
         class=" avatar mat-elevation-z8 " 
-        src = "https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg"
+        [src]="User.photoURL ?? 'assets/images/profile-placeholder.png'"
       />
 
-      <h4 *ngIf="user$ | async as User"> {{User.displayName}} </h4>
-      <p class= "designation"> Joined 1<sup>st</sup> Jan 2000 </p>
+      <h4> {{User.displayName}} </h4>
+      <p class= "designation"> {{User.description}} </p>
 
       <button mat-button class="menu-button" routerLink="/home">
         <mat-icon> home </mat-icon>
@@ -16,23 +17,23 @@
 
       <mat-divider></mat-divider>
 
-      <button mat-button class="menu-button">
+      <button mat-button class="menu-button" routerLink="/eateries">
         <mat-icon> fastfood </mat-icon>
         <span> Eateries </span>
       </button>
-      <button mat-button class="menu-button">
+      <button mat-button class="menu-button" routerLink="/studyspots">
         <mat-icon> local_library </mat-icon>
         <span> Study Spots </span>
       </button>
-      <button mat-button class="menu-button">
+      <button mat-button class="menu-button" routerLink="/facilities">
         <mat-icon> local_play </mat-icon>
         <span> Facilities </span>
       </button>
-      <button mat-button class="menu-button">
+      <button mat-button class="menu-button" routerLink="/scenicviews">
         <mat-icon> local_see </mat-icon>
         <span> Scenic Views </span>
       </button>
-      <button mat-button class="menu-button">
+      <button mat-button class="menu-button" routerLink="/hiddengems">
         <mat-icon> insert_emoticon </mat-icon>
         <span> Hidden Gems </span>
       </button>
@@ -48,10 +49,19 @@
 
     <mat-sidenav-content>
       <div class = "content mat-elevation-z4">
+        <p> </p>
+        <p> </p>
+        <p> </p>
         <app-profile-dynamic></app-profile-dynamic>
+        <p> </p>
+        <p> </p>
+        <p> </p>
         <app-make-post></app-make-post>
+        <app-feed class = "posts" [allPosts]="this.posts"></app-feed>
       </div>
         
     </mat-sidenav-content>
   </mat-sidenav-container>
 
+
+</ng-container>

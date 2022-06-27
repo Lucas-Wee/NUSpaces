@@ -8,12 +8,13 @@
       width="120"
       height="120"
       class="margin-top mat-elevation-z1"
+      [src]="user.photoURL ?? '/assets/images/profile-placeholder.png'"
     />
     <button mat-mini-fab (click)="inputField.click()">
       <mat-icon>edit</mat-icon>
     </button>
   </div>
-  <input #inputField hidden type="file"/>
+  <input #inputField hidden type="file" (change)="uploadFile($event, user)"/>
 
   <form class="margin-top" [formGroup]="profileForm" (ngSubmit)="saveProfile()">
     <div class="row">

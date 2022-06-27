@@ -13,8 +13,21 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatMenuModule } from '@angular/material/menu';
+
+
+// Firebase Libraries
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { getStorage, provideStorage } from '@angular/fire/storage';
+
+
+// Other Libraries
+import { HotToastModule } from '@ngneat/hot-toast';
 
 // Angular Components 
 import { AppComponent } from './app.component';
@@ -26,14 +39,15 @@ import { RouterModule } from '@angular/router';
 import { SignUpComponent } from './component/sign-up/sign-up.component';
 import { ProfileDynamicComponent } from './component/profile-dynamic/profile-dynamic.component';
 import { ProfileComponent } from './component/profile/profile.component';
-
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
-import { environment } from '../environments/environment';
-import { provideAuth, getAuth } from '@angular/fire/auth';
-import { provideFirestore, getFirestore } from '@angular/fire/firestore';
-import { getStorage, provideStorage } from '@angular/fire/storage';
-import { HotToastModule } from '@ngneat/hot-toast';
 import { MakePostComponent } from './component/make-post/make-post.component';
+import { EateriesComponent } from './component/category/eateries/eateries.component';
+import { StudyspotsComponent } from './component/category/studyspots/studyspots.component';
+import { FacilitiesComponent } from './component/category/facilities/facilities.component';
+import { ScenicviewsComponent } from './component/category/scenicviews/scenicviews.component';
+import { HiddengemsComponent } from './component/category/hiddengems/hiddengems.component';
+
+
+
 
 
 
@@ -49,7 +63,12 @@ import { MakePostComponent } from './component/make-post/make-post.component';
     SignUpComponent,
     ProfileDynamicComponent,
     ProfileComponent,
-    MakePostComponent
+    MakePostComponent,
+    EateriesComponent,
+    StudyspotsComponent,
+    FacilitiesComponent,
+    ScenicviewsComponent,
+    HiddengemsComponent
   ],
   imports: [
     BrowserModule,
@@ -62,6 +81,7 @@ import { MakePostComponent } from './component/make-post/make-post.component';
     MatDividerModule,
     MatCardModule,
     MatInputModule,
+    MatSelectModule,
     MatMenuModule,
     MatFormFieldModule,
     ReactiveFormsModule,

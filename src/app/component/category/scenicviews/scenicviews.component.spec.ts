@@ -1,19 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { PostComponent } from './post.component';
 
-describe('PostComponent', () => {
-  let component: PostComponent;
-  let fixture: ComponentFixture<PostComponent>;
+import { ScenicviewsComponent } from './scenicviews.component';
+
+describe('ScenicviewsComponent', () => {
+  let component: ScenicviewsComponent;
+  let fixture: ComponentFixture<ScenicviewsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PostComponent ]
+      declarations: [ ScenicviewsComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PostComponent);
+    fixture = TestBed.createComponent(ScenicviewsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
