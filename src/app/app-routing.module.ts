@@ -17,6 +17,8 @@ import { StudyspotsComponent } from './component/category/studyspots/studyspots.
 import { FacilitiesComponent } from './component/category/facilities/facilities.component';
 import { ScenicviewsComponent } from './component/category/scenicviews/scenicviews.component';
 import { HiddengemsComponent } from './component/category/hiddengems/hiddengems.component';
+import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
+import { VerifyEmailComponent } from './component/verify-email/verify-email.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectLoggedInToHome = () => redirectLoggedInTo(['home']);
@@ -70,6 +72,16 @@ const routes: Routes = [
   {
     path:'hiddengems',
     component: HiddengemsComponent,
+    ...canActivate(redirectUnauthorizedToLogin,)
+  },
+  {
+    path: 'forgot-password', 
+    component : ResetPasswordComponent,
+    ...canActivate(redirectUnauthorizedToLogin,)
+  },
+  {
+    path: 'verify-email', 
+    component : VerifyEmailComponent,
     ...canActivate(redirectUnauthorizedToLogin,)
   }
 ];

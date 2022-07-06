@@ -1,3 +1,4 @@
+<div class="main-div">
 <div class="form-container mat-elevation-z5">
     <h1>Login</h1>
     <form [formGroup]="loginForm" (ngSubmit)="submit()">
@@ -19,6 +20,24 @@
       <div class="center margin-top">
           <button type="submit" mat-raised-button color="primary">Login</button>
       </div>
-      <span class="center margin-top">New to our platform? <a class="sign-up-link" routerLink="/sign-up">Sign up!</a></span>
+
+      <span class="center margin-top">
+        New to our platform? 
+        <a class="sign-up-link" routerLink="/sign-up">Sign up!</a>
+      </span>
+    
+      <div class="center margin-top"> 
+      <button
+      class="forgot"
+      (click)="openResetPasswordDialog()"
+      mat-dialog-close
+      mat-button
+    >
+      Forget Password?
+    </button>
+  </div>
+    
+    
     </form>
   </div>
+</div>

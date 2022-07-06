@@ -2,6 +2,13 @@ body {
     background-color: lightseagreen;
 }
 
+.main-div{
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
 mat-card{
     /* try to remember these settings for forcing an element into page center */
     position: absolute;

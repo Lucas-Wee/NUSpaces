@@ -3,6 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'app/services/authentication.service';
 import { HotToastService } from '@ngneat/hot-toast';
+import { ResetPasswordComponent } from '../reset-password/reset-password.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login',
@@ -20,9 +22,16 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthenticationService,
     private router: Router,
+    private dialog: MatDialog,
     private toast: HotToastService) { }
 
   ngOnInit(): void {
+  }
+
+  openResetPasswordDialog(): void {
+    this.dialog.open(ResetPasswordComponent, {
+      width: '30rem',
+    });
   }
 
   get email() {
