@@ -7,6 +7,9 @@ import {
   getDoc,
   setDoc,
   updateDoc,
+  query,
+  where,
+  collectionData,
 } from '@angular/fire/firestore';
 import {
   filter,
@@ -24,7 +27,10 @@ import { AuthenticationService } from './authentication.service';
 })
 export class UsersService {
 
-  constructor(private firestore: Firestore, private authService: AuthenticationService) { }
+  constructor(
+    private firestore: Firestore, 
+    private authService: AuthenticationService
+    ) { }
 
   get currentUserProfile$(): Observable<User | null> {
     return this.authService.currentUser$.pipe(
@@ -37,6 +43,11 @@ export class UsersService {
         return docData(ref) as Observable<User>;
       })
     );
+  }
+
+  userByUID(uid: string): Observable<User> {
+    const ref = doc(this.firestore, 'users', uid);
+    return docData(ref) as Observable<User>;
   }
 
   addUser(user: User): Observable<any> {

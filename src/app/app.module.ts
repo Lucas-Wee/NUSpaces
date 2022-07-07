@@ -45,6 +45,8 @@ import { StudyspotsComponent } from './component/category/studyspots/studyspots.
 import { FacilitiesComponent } from './component/category/facilities/facilities.component';
 import { ScenicviewsComponent } from './component/category/scenicviews/scenicviews.component';
 import { HiddengemsComponent } from './component/category/hiddengems/hiddengems.component';
+import { ProfileStaticComponent } from './component/profile-static/profile-static.component';
+import { ProfileOtherComponent } from './component/profile-other/profile-other.component';
 
 
 
@@ -68,7 +70,9 @@ import { HiddengemsComponent } from './component/category/hiddengems/hiddengems.
     StudyspotsComponent,
     FacilitiesComponent,
     ScenicviewsComponent,
-    HiddengemsComponent
+    HiddengemsComponent,
+    ProfileStaticComponent,
+    ProfileOtherComponent,
   ],
   imports: [
     BrowserModule,

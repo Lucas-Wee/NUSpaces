@@ -11,6 +11,7 @@ export interface Post {
     ID: string;
     time: Timestamp;
 
+    userID: string;
     userName: string;
     userAvatar: string; 
 }

@@ -4,7 +4,7 @@
             [src] = "post?.userAvatar ?? '/assets/images/profile-placeholder.png'"
             mat-card-avatar
         />
-        <mat-card-title> {{post?.userName}} </mat-card-title>
+        <mat-card-title routerLink="/profile/{{post?.userID}}" onMouseOver="this.style.cursor='pointer'"> {{post?.userName}} </mat-card-title>
         <mat-card-subtitle> {{post?.time}} </mat-card-subtitle> <!-- for some ungodly reason it's refusing to print fml -->
     </mat-card-header>
 
