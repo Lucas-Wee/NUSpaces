@@ -8,10 +8,12 @@ export interface Post {
 
 
     // instantiated by backend
-    ID: string;
+    id: string;
     time: Timestamp;
 
     userID: string;
     userName: string;
     userAvatar: string; 
+
+    likes: string[];
 }

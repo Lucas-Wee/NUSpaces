@@ -16,3 +16,16 @@
     flex: auto;
     text-align: justify;
 }
+
+.like-button {
+    position: absolute;
+    bottom: 10px;
+    left: 5px;
+
+}
+
+.like-count {
+    position: absolute;
+    bottom: 0px;
+    left: 45px;
+}

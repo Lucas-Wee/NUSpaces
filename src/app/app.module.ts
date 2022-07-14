@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
 // Angular material
@@ -16,6 +16,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 // Firebase Libraries
@@ -47,6 +48,9 @@ import { ScenicviewsComponent } from './component/category/scenicviews/scenicvie
 import { HiddengemsComponent } from './component/category/hiddengems/hiddengems.component';
 import { ProfileStaticComponent } from './component/profile-static/profile-static.component';
 import { ProfileOtherComponent } from './component/profile-other/profile-other.component';
+import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
+import { VerifyEmailComponent } from './component/verify-email/verify-email.component';
+import { FavouritesComponent } from './component/favourites/favourites.component';
 
 
 
@@ -73,6 +77,9 @@ import { ProfileOtherComponent } from './component/profile-other/profile-other.c
     HiddengemsComponent,
     ProfileStaticComponent,
     ProfileOtherComponent,
+    ResetPasswordComponent,
+    VerifyEmailComponent,
+    FavouritesComponent,
   ],
   imports: [
     BrowserModule,
@@ -88,7 +95,9 @@ import { ProfileOtherComponent } from './component/profile-other/profile-other.c
     MatSelectModule,
     MatMenuModule,
     MatFormFieldModule,
+    MatDialogModule,
     ReactiveFormsModule,
+    FormsModule,
     RouterModule.forRoot([
       {
         path: '',

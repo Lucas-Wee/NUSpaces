@@ -18,6 +18,7 @@ import { FacilitiesComponent } from './component/category/facilities/facilities.
 import { ScenicviewsComponent } from './component/category/scenicviews/scenicviews.component';
 import { HiddengemsComponent } from './component/category/hiddengems/hiddengems.component';
 import { ProfileOtherComponent } from './component/profile-other/profile-other.component';
+import { FavouritesComponent } from './component/favourites/favourites.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectLoggedInToHome = () => redirectLoggedInTo(['home']);
@@ -78,6 +79,11 @@ const routes: Routes = [
     component: HiddengemsComponent,
     ...canActivate(redirectUnauthorizedToLogin,)
   },
+  {
+    path:'favourites',
+    component: FavouritesComponent,
+    ...canActivate(redirectUnauthorizedToLogin,)
+  }
 ];
 
 @NgModule({
