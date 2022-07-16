@@ -42,3 +42,10 @@ mat-card{
     font-size: 1.2rem;
     margin-left: 8px;
 }
+
+.main-div{
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

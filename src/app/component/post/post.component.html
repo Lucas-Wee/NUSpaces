@@ -1,11 +1,11 @@
-<mat-card class= "post">
+<mat-card class= "post" *ngIf="user$ | async as User">
     <mat-card-header>
         <img
             [src] = "post?.userAvatar ?? '/assets/images/profile-placeholder.png'"
             mat-card-avatar
         />
-        <mat-card-title> {{post?.userName}} </mat-card-title>
-        <mat-card-subtitle> {{post?.time}} </mat-card-subtitle> <!-- for some ungodly reason it's refusing to print fml -->
+        <mat-card-title routerLink="/profile/{{post?.userID}}" onMouseOver="this.style.cursor='pointer'"> {{post?.userName}} </mat-card-title>
+        <mat-card-subtitle> {{post.time!}} </mat-card-subtitle> <!-- for some ungodly reason it's refusing to print fml -->
     </mat-card-header>
 
     <mat-card-content>
@@ -15,13 +15,26 @@
             height = 300px;
         />
         <div class="post_text">
-            <h6> {{post?.category}} </h6>
-            <p> {{post?.comment}} </p>
+            <h6> {{post.category}} </h6>
+            <p> {{post.comment}} </p>
         </div>
     </mat-card-content>
 
     <mat-card-footer>
-        
     </mat-card-footer>
+
+    <ng-container *ngIf="post.likes.includes(User.uid); else likeButton">
+        <button (click)="userUnlikePost()" class="like-button"> 
+            <mat-icon> favorite </mat-icon>
+        </button>
+    </ng-container>
+    
+    <ng-template #likeButton>
+        <button (click)="userLikePost()" class="like-button"> 
+            <mat-icon> heart_broken </mat-icon>
+        </button>
+    </ng-template>
+
+    <h2 class="like-count"> {{post.likes.length}}</h2>
 
 </mat-card>

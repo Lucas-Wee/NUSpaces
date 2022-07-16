@@ -8,22 +8,14 @@
       [src] = "url =='' ? 'assets/images/camera.png' : url "
     />
     <button mat-mini-fab (click)="inputField.click()">
-      <mat-icon>edit</mat-icon>
+      <mat-icon> edit </mat-icon>
     </button>
   </div>
-  <input #inputField type="file" hidden (change)="onFileChange($event)"/>
+  <input #inputField type="file" hidden accept="image/*" (change)="onFileChange($event)"/>
 
   <form class="margin-top" [formGroup]="postForm" (ngSubmit)="savePost()">
     <div class="row">
-      <!-- <mat-form-field>
-        <input
-          type="text"
-          matInput
-          formControlName="category"
-          placeholder="Category"
-        />
-      </mat-form-field> -->
-      
+           
      
       <mat-form-field>
         <mat-label>Category</mat-label>

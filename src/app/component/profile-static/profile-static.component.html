@@ -1,0 +1,18 @@
+<div
+    class="form-container mat-elevation-z5 text-center"
+>
+
+    <h1> User Profile </h1>
+        <div class="profile-image">
+            <img
+                width="120"
+                height="120"
+                class="margin-top mat-elevation-z1dir="
+                [src]="user?.photoURL ?? '/assets/images/profile-placeholder.png'"
+            />
+        </div>
+    <div>
+        <h2> {{user?.displayName}} </h2>
+        <h4> {{user?.description}} </h4>
+    </div>
+</div>

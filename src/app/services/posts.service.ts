@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { 
+  arrayRemove,
+  arrayUnion,
   collection, 
   collectionData, 
   doc, 
@@ -12,7 +14,7 @@ import {
 } from '@angular/fire/firestore';
 import { UsersService } from './users.service';
 import { Post } from 'app/data/Post';
-import { Observable, take, map, switchMap} from 'rxjs';
+import { Observable, take, map, switchMap, from} from 'rxjs';
 import { addDoc } from '@firebase/firestore';
 import { UploadService } from './upload.service';
 import { User } from 'app/data/User';
@@ -32,6 +34,13 @@ export class PostsService {
   postsByUser(uid: string | undefined): Observable<Post[]> {
     const ref = collection(this.firestore, 'posts');
     const queryPosts = query(ref, where('userID', '==', uid), orderBy('time', 'desc'));
+    //console.log(queryPosts);
+    return collectionData(queryPosts) as Observable<Post[]>;
+  }
+
+  favsByUser(uid: string | undefined): Observable<Post[]> {
+    const ref = collection(this.firestore, 'posts');
+    const queryPosts = query(ref, where("likes", "array-contains", uid), orderBy('time', 'desc'));
     //console.log(queryPosts);
     return collectionData(queryPosts) as Observable<Post[]>;
   }
@@ -62,7 +71,8 @@ export class PostsService {
               time: currTime,
               userID: user?.uid,
               userName: user?.displayName,
-              userAvatar: user?.photoURL
+              userAvatar: user?.photoURL,
+              likes: new Array()
             }).then(docRef => 
               this.uploadService.uploadImage(image, `images/posts/${docRef.id}`)
               .pipe(
@@ -76,6 +86,26 @@ export class PostsService {
               .subscribe()
             ) 
         )
+    )
+  }
+
+  likePost(postID: string): Observable<any> {
+    const ref = doc(this.firestore, 'posts', postID);
+    return this.user$.pipe(
+      take(1),
+      map(user =>
+        updateDoc(ref, { likes: arrayUnion(user?.uid)})
+      )
+    )
+  }
+
+  unlikePost(postID: string): Observable<any> {
+    const ref = doc(this.firestore, 'posts', postID);
+    return this.user$.pipe(
+      take(1),
+      map(user =>
+        updateDoc(ref, { likes: arrayRemove(user?.uid)})
+      )
     )
   }
 }
