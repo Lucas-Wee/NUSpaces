@@ -5,7 +5,8 @@
             mat-card-avatar
         />
         <mat-card-title routerLink="/profile/{{post?.userID}}" onMouseOver="this.style.cursor='pointer'"> {{post?.userName}} </mat-card-title>
-        <mat-card-subtitle> {{post?.time}} </mat-card-subtitle> <!-- for some ungodly reason it's refusing to print fml -->
+        <mat-card-subtitle> {{post?.time?.toDate() | date:'dd/MM/yyyy h:mm:ss a'}} </mat-card-subtitle> <!-- for some ungodly reason it's refusing to print fml -->
+
     </mat-card-header>
 
     <mat-card-content>
