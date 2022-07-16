@@ -29,7 +29,7 @@ The app is a social media platform. Usage of this platform will be similar to ot
 - Use the search bar to filter for user-generated tags;
 - Navigate to another user’s profile to view their details and posts;
 - Navigate to their own profile to view/edit their details and make posts;
-- 
+
 The app will be developed primarily for the web. We have no immediate plans for the app to be available on mobile devices.
  
 ## Current App Progress:
