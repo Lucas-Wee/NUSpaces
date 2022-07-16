@@ -9,7 +9,7 @@ A preview of the app is available [here](https://nuspaces.netlify.app). Please r
 - [Video](https://drive.google.com/file/d/1JL-11iuhj7uocIdXTIA168a8Qg4omaqD/view?usp=sharing)
 
 ## Proposed Level of Achievement:
-Gemini 
+Apollo 11
 
 
 ## Motivation 
