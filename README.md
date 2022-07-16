@@ -173,15 +173,15 @@ The following features we intend to deliver on before end June:
 
 The following features we intend to deliver on before mid July:
 - ~~Firebase integration for posts~~
+- ~~- Viewing other profiles ~~
 - **Edge case handling, bug fixes pertaining to default users**
-- Viewing other profiles
-- User-generated tags and tag searching
+
 
 The following features we intend to deliver on before end July:
-- Help page
+~~- Help page~~
 - Tidying up UI **(Predominantly resizing and moving elements around for intuitive navigation)**
 - **Stretch features (if time permits)**
   - **Map integration**
   - **Save posts**
-  - **Forgot password**
+  ~~- **Forgot password**~~
 - **Bug fixes including those pertaining to netlify hosting**
