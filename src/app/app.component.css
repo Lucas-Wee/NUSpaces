@@ -2,10 +2,15 @@ mat-toolbar {
     justify-content: space-between;
     background: 	#90EE90;
     color: black;
+    height: 8%;
   }
   
   
   .profile-image-toolbar {
     border-radius: 100%;
     margin-right: 8px;
+  }
+
+  .content {
+    width: 100%;
   }
