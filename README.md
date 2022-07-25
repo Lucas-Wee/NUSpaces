@@ -3,10 +3,10 @@
 ## Links:
 A preview of the app is available [here](https://nuspaces.netlify.app). Please refrain from having explicit images/text in profile and postings.
 
-- [Google Docs README](https://docs.google.com/document/d/1lCt8Dvcgc4RvxKBpOPNXFZG9Rvj0seeGY4vdJ7eZ2IQ/edit?usp=sharing)
+- [Google Docs README](https://docs.google.com/document/d/1k46pz6Z7I5YSJYhRuhwCIKNLJcph1d36VyWVCA2rFrw/edit#)
 - [Time Logs](https://docs.google.com/spreadsheets/d/1ncyh0pu4ngOQzW2tn02UA8mojlnJcOvFKRYmpfL0X9k/edit?usp=sharing)
-- [Poster](https://drive.google.com/file/d/1MXJqAD4W74srfvlOosHbClFINJxYGHSR/view?usp=sharing)
-- [Video](https://drive.google.com/file/d/1JL-11iuhj7uocIdXTIA168a8Qg4omaqD/view?usp=sharing)
+- [Poster](https://drive.google.com/file/d/1OXa64Dv8BKxa8JJhW4h2nl4RM8cpPVvi/view?usp=sharing)
+- [Video](https://drive.google.com/file/d/1Y-SHAHEjkxbzJuIbrZRZICAy5teR_BHl/view?usp=sharing)
 
 ## Proposed Level of Achievement:
 Apollo 11
@@ -84,6 +84,13 @@ Technical details:
 - Upon successful signup, a document will be created in the Firebase Authentication database with an auto-generated userID.
 - The use of pipelines also ensures that a corresponding user entry with the same userID is generated in firestore database, which can support additional fields such as userAvatar, description, etc. Doing so allows us flexibility to expand additional fields in future such as account creation date, etc.
  
+#### Forget Password Pop-up:
+Users can click the 'Forget Password' button on the login page, to reset their password. A popup will appear and require users to enter their email, so they can reset their password with a link sent to their email address (might have to check spam folder). 
+
+Technical details:
+- We utilized the endPasswordResetEmail method from Angular/Firebase/Firestore to setup the functionality 
+- Email service is also included in the endPasswordResetEmail method, and after changing the password, the details in Firestore Authentication database will be updated
+
  
 ### Homepage & Categories:
 Upon successful sign-in/account creation, users will arrive at the homepage
@@ -108,12 +115,13 @@ Technical details:
 - Each category button is its own router link which has been set up with the abovementioned filtering in place. The ability to disable angular material buttons ensures that after navigating to a category, said category cannot be selected again.
 
 #### Feed:
-The feed generates the posts, with filters if provided. Each post displays the userName and userAvatar, the time of posting, the image itself, the post category and the description. The feed is sorted in reverse chronological order.
+The feed generates the posts, with filters if provided. Each post displays the userName and userAvatar, the time of posting, the image itself, the post category and the description. The feed is sorted in reverse chronological order. Users can choose to 'Like' the posts, and liked posts will appear in the 'favourites' section in the sidebar. Liking a post enables users to save the posts that they like in their collection. 
 
 Technical details:
 - Since posts are stored in a collection, a queryAll returns all posts to display on a homepage, or alternatively has additional filters by category. All posts obtained are sorted by their date of posting. 
 - After obtaining these details as an array, the feed component iterates over each item and generates a post, feeding in the relevant details to show on the card.
- 
+- Each post object is augmented with a likes array which on liking or unliking adds or removes the current userID to the array respectively.
+
  
 ### User Profile Page:
 The user profile page will consist of the main details:
@@ -157,31 +165,3 @@ In addition, the following details were gleaned from guided/unguided user testin
 - Options to recover forgotten password would be helpful; potential stretch goal.
 - Leaning into app’s location-centric nature, having location of each image displayed on a map (i.e. some map integration) would help differentiate the app; potential stretch goal.
 - Profile description, comment fields should be larger to account for longer text strings.
-
-## Revised Schedule
-This is the revised schedule taking into account current progress (struck through) and surfaced bugs/missing features (in bold)
-
-The following features we intend to deliver on before mid June:
-- ~~Firebase integration for user accounts~~
-- ~~Registration page with routing~~
-- ~~Proper user registration and login functionality Authguard~~
-- ~~User profile page with functionality to change user details~~
-
-The following features we intend to deliver on before end June:
-- ~~Filter posts functionality with routing~~
-- ~~Make post functionality with rudimentary CRUD functions~~
-
-The following features we intend to deliver on before mid July:
-- ~~Firebase integration for posts~~
-- ~~- Viewing other profiles ~~
-- **Edge case handling, bug fixes pertaining to default users**
-
-
-The following features we intend to deliver on before end July:
-~~- Help page~~
-- Tidying up UI **(Predominantly resizing and moving elements around for intuitive navigation)**
-- **Stretch features (if time permits)**
-  - **Map integration**
-  - **Save posts**
-  ~~- **Forgot password**~~
-- **Bug fixes including those pertaining to netlify hosting**
