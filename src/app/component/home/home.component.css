@@ -5,7 +5,7 @@ mat-toolbar {
 
 mat-sidenav {
     margin: 16px;
-    width: 200px;
+    width: 15%;
     border-right: none;
     background: lightseagreen;
     color: white;
@@ -19,7 +19,7 @@ mat-sidenav-container {
 }
 
 mat-sidenav-content {
-    width: 1300px;
+    width: 85%;
 }
 
 mat-divider {
@@ -62,6 +62,7 @@ mat-divider {
     width: 100px;
     height: 100px;
     border-radius: 5px;
+    object-fit: cover;
 }
 
 .name {

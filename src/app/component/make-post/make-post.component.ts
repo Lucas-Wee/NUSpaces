@@ -52,11 +52,10 @@ export class MakePostComponent implements OnInit {
   }
 
   savePost() {
-    if (!this.postForm.valid) {
+    if (!this.postForm.valid && this.imgFile != null) {
       return;
     }
     
-    console.log('1');
     const postData = this.postForm.value;
     this.postsService
       .addPost(postData, this.imgFile)
