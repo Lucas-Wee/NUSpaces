@@ -150,11 +150,11 @@ A real-time display of all posts made by the user, displayed in reverse chronolo
 
 ## Testing:
 ### Integrated Testing:
-For a comprehensive list of tests done to the prototype, refer to the [Google Docs Version](https://docs.google.com/document/d/1lCt8Dvcgc4RvxKBpOPNXFZG9Rvj0seeGY4vdJ7eZ2IQ/edit?usp=sharing). Included here will be a summary of the major bugs of the prototype:
+For a comprehensive list of tests done to the prototype, refer to the [Google Docs Version]
+(https://docs.google.com/document/d/1k46pz6Z7I5YSJYhRuhwCIKNLJcph1d36VyWVCA2rFrw/edit#). 
 
-- Edge cases not well accounted for. Cases such as bad form submission (e.g. A user having an 'invisible' username by just having spaces in the username field) have not been coded for.
-- Due to the use of fixed pixel measurements to style the elements, many of these elements shrink or grow when the page is resized. In some cases, this can adversely affect readability or navigation.
-- On the Netlify deployed version of the site, reloading pages or redirecting unauthorised users causes a Netlify 'page not found' error, where these interactions were not observed when hosted on local machine.
+- We experimented with Testing Code with **Karma/Jasmine**, however in this case, we decided to go ahead with manual testing because our application scale is not as big that we require automated code to run. 
+- We also experimented with **TestProject**, which is a test automation platform, but we decided to not utilise it to allow easier user experience for our users. 
 
 ### User Testing:
 In addition, the following details were gleaned from guided/unguided user testing:
